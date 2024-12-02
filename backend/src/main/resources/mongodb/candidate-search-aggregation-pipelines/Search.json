@@ -1,0 +1,23 @@
+[
+  {
+    "$search":
+    {
+      "index": "default",
+      "text": {
+        "query": "{{searchTerms}}",
+        "path": [
+          "firstName",
+          "middleName",
+          "lastName",
+          "phoneNumber",
+          "email",
+          "jobTitle",
+          "summary",
+          "primaryTechnologies",
+          "skills.name",
+          "status"
+        ]
+      }
+    }
+  }
+]

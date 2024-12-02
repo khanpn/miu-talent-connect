@@ -1,0 +1,10 @@
+[
+  {
+    "$match":
+    {
+      "profileStatus": {
+        "$in": "{{profileStatuses}}"
+      }
+    }
+  }
+]

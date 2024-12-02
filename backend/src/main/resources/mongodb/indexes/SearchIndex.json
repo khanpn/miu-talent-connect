@@ -1,0 +1,117 @@
+{
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "firstName": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "middleName": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "lastName": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "phoneNumber": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "email": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "jobTitle": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "summary": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "primaryTechnologies": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "skills.name": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ],
+      "profileStatus": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "autocomplete"
+        },
+        {
+          "type": "token"
+        }
+      ]
+    }
+  }
+}

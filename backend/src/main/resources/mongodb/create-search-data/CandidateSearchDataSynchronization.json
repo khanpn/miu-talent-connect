@@ -1,0 +1,80 @@
+[
+  {
+    "$lookup": {
+      "from": "users",
+      "localField": "user.$id",
+      "foreignField": "_id",
+      "as": "user"
+    }
+  },
+  {
+    "$unwind": {
+      "path": "$user"
+    }
+  },
+  {
+    "$addFields": {
+      "userId": "$user._id",
+      "firstName": "$user.firstName",
+      "middleName": "$user.middleName",
+      "lastName": "$user.lastName",
+      "phoneNumber": "$user.phoneNumber",
+      "email": "$user.email",
+      "profilePictureUrl": "$user.profilePictureUrl"
+    }
+  },
+  {
+    "$unset": "user"
+  },
+  {
+    "$lookup": {
+      "from": "candidate_profiles",
+      "localField": "profile.$id",
+      "foreignField": "_id",
+      "as": "profile"
+    }
+  },
+  {
+    "$unwind": "$profile"
+  },
+  {
+    "$addFields": {
+      "profileId": "$profile._id",
+      "jobTitle": "$profile.jobTitle",
+      "summary": "$profile.summary",
+      "primaryTechnologies": "$profile.primaryTechnologies",
+      "skills": "$profile.skills",
+      "resumeUrl": "$profile.resumeUrl",
+      "profileStatus": "$profile.status"
+    }
+  },
+  {
+    "$unset": "profile"
+  },
+  {
+    "$project": {
+      "firstName": 1,
+      "lastName": 1,
+      "middleName": 1,
+      "phoneNumber": 1,
+      "email": 1,
+      "profilePictureUrl": 1,
+      "jobTitle": 1,
+      "summary": 1,
+      "primaryTechnologies": 1,
+      "skills": 1,
+      "resumeUrl": 1,
+      "profileStatus": 1,
+      "userId": 1,
+      "profileId": 1
+    }
+  },
+  {
+    "$merge": {
+      "into": "candidate_search_index",
+      "on": "_id",
+      "whenMatched": "merge",
+      "whenNotMatched": "insert"
+    }
+  }
+]

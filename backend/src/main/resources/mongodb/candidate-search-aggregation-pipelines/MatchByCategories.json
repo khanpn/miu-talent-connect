@@ -1,0 +1,36 @@
+[
+  {
+    "$match": {
+      "$expr": {
+        "$cond": [
+          {
+            "$eq": [
+              null,
+              "{{categories}}"
+            ]
+          },
+          true,
+          {
+            "$anyElementTrue": {
+              "$map": {
+                "input": "{{categories}}",
+                "as": "value",
+                "in": {
+                  "$in": [
+                    "$$value",
+                    {
+                      "$ifNull": [
+                        "$primaryTechnologies",
+                        []
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+]

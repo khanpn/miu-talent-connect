@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MIU Talent Connect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .email-header {
+            background-color: #0d3c7a;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 8px 8px 0 0;
+        }
+        .email-header h1 {
+            margin: 0;
+        }
+        .email-body {
+            padding: 20px;
+        }
+        .email-body p {
+            margin: 0 0 15px;
+        }
+        .email-footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #0d3c7a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #0a3165;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+        <h1>Welcome to MIU Talent Connect</h1>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+        <p>Dear <strong th:text="${name}"></strong>,</p>
+        <p>We’re excited to have you onboard as an employer role! Your account has been successfully created. You can now log in to website to connect with our talents.</p>
+        <p><strong>Your Login Details:</strong></p>
+        <ul>
+            <li><strong>Username:</strong> <span th:text="${username}"/></li>
+            <li><strong>Password:</strong> <span th:text="${password}"/></li>
+        </ul>
+        <p>Click the button below to login:</p>
+        <p>
+            <a th:href="@{${loginUrl}}" class="button">Log In to Your Account</a>
+        </p>
+        <p>If you have any questions, feel free to contact our support team.</p>
+        <p>Best regards,</p>
+        <p><strong>MIU Talent Connect Team</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+        <p>Please do not share your login credentials with anyone.</p>
+        <p>&copy; <span th:text="${year}"/> MIU Talent Connect. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>
