@@ -19,11 +19,14 @@ const PrimaryTechnologiesSelector = ({
 }: Props) => {
   const { data } = useQuery<HalResponse<Category>>({
     queryKey: [CATEGORY_RESOURCE_PATH],
-    queryFn: () => halClient.fetchResource<Category>(CATEGORY_RESOURCE_PATH),
+    queryFn: () =>
+      halClient.fetchResource<Category>(CATEGORY_RESOURCE_PATH, {
+        params: { page: 0, size: 9999 },
+      }),
   });
 
   const handleChange = (_: any, newValue: any) => {
-    if (value && value?.length >= maxSelection) {
+    if (newValue && newValue?.length > maxSelection) {
       return;
     }
     onChange && onChange(newValue);
@@ -51,7 +54,7 @@ const PrimaryTechnologiesSelector = ({
           <TextField
             {...params}
             variant="outlined"
-            label="Select Technologies"
+            label={`Select maximum ${maxSelection} technologies`}
             placeholder="Add more..."
             error={error}
           />

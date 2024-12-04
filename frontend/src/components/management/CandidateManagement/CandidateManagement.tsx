@@ -24,8 +24,12 @@ import {
   GridToolbarContainer,
 } from '@mui/x-data-grid';
 import { useEffect, useReducer, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Candidate } from '../../../models/Candidate';
 import { CandidateProfile } from '../../../models/CandidateProfile';
 import { CandidateProfileStatus } from '../../../models/CandidateProfileStatus';
+import { User } from '../../../models/User';
+import { UserStatus } from '../../../models/UserStatus';
 import halClient from '../../../rest/halClient';
 import {
   CANDIDATE_PROFILE_RESOURCE_PATH,
@@ -35,9 +39,6 @@ import {
 import restClient, { extractErrorMessage } from '../../../rest/restClient';
 import { optionsFromEnum } from '../../../utils/SelectOptionsUtils';
 import NewCandidateModal from './NewCandidateModal/NewCandidateModal';
-import { Candidate } from '../../../models/Candidate';
-import { UserStatus } from '../../../models/UserStatus';
-import { User } from '../../../models/User';
 
 export const userStatusColorMappings: {
   [key: string]:
@@ -125,8 +126,10 @@ const CandidateManagement = () => {
       headerName: 'Avatar',
       display: 'flex',
       minWidth: 40,
-      renderCell: ({ value }) => (
-        <Avatar sx={{ width: 40, height: 40 }} src={value} />
+      renderCell: ({ value, row }) => (
+        <Link to={`/candidate-profile/${row.userId}`}>
+          <Avatar sx={{ width: 40, height: 40 }} src={value} />
+        </Link>
       ),
     },
     { field: 'jobTitle', headerName: 'Job Title', minWidth: 190 },

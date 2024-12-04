@@ -329,6 +329,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                   <Grid container size={{ sm: 12 }}>
                     <Grid size={{ sm: 4 }}>
                       <TextField
+                        required
                         id="name"
                         label="Name"
                         variant="outlined"
@@ -341,6 +342,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                   </Grid>
                   <Grid size={{ sm: 12, md: 4 }}>
                     <FormControl
+                      required
                       error={!!errors?.languages?.[index]?.readingLevel}
                       fullWidth
                     >
@@ -375,6 +377,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                   </Grid>
                   <Grid size={{ sm: 12, md: 4 }}>
                     <FormControl
+                      required
                       error={!!errors?.languages?.[index]?.speakingLevel}
                       fullWidth
                     >
@@ -412,7 +415,10 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                       error={!!errors?.languages?.[index]?.listeningLevel}
                       fullWidth
                     >
-                      <InputLabel id="language-listening-level-select-label">
+                      <InputLabel
+                        required
+                        id="language-listening-level-select-label"
+                      >
                         Listening Level
                       </InputLabel>
                       <Controller
@@ -443,6 +449,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                   </Grid>
                   <Grid size={{ sm: 12, md: 4 }}>
                     <FormControl
+                      required
                       error={!!errors?.languages?.[index]?.writingLevel}
                       fullWidth
                     >
