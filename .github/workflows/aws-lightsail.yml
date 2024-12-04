@@ -1,0 +1,69 @@
+name: Deploy APIs to Amazon Lightsail
+
+on:
+  push:
+    branches: [ "deploy" ]
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: miu-talent-connect
+  IMAGE_NAME: miu-talent-connect-apis
+  LIGHTSAIL_SERVICE_NAME: miu-talent-connect-apis
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4.5.0
+      with:
+        java-version: 21
+        distribution: 'temurin'
+        cache: 'maven'
+        cache-dependency-path: './backend/pom.xml'
+
+    - name: Build with Maven
+      run: mvn -B clean package -DskipTests --file ./backend/pom.xml
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        # be deployed to ECS.
+        cd ./backend
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:latest -t $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME --all-tags
+
+    - name: Install AWS Lightsail plugin
+      shell: bash
+      run: |
+        sudo curl "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/linux-amd64/lightsailctl" -o "/usr/local/bin/lightsailctl"
+        sudo chmod +x /usr/local/bin/lightsailctl
+
+    - name: Deploy container on AWS Lightsail
+      shell: bash
+      run: aws lightsail create-container-service-deployment --region ${{ env.AWS_REGION }} --cli-input-json '${{ vars.LIGHTSAIL_SERVICE_CONFIG_JSON }}' > /dev/null
