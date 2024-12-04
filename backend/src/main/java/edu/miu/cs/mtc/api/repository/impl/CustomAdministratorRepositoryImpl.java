@@ -6,7 +6,7 @@ import static org.springframework.data.mongodb.core.aggregation.UnsetOperation.u
 import edu.miu.cs.mtc.api.model.entity.Administrator;
 import edu.miu.cs.mtc.api.repository.CustomAdministratorRepository;
 import java.util.Map;
-import java.util.Objects;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -42,11 +42,12 @@ public class CustomAdministratorRepositoryImpl implements CustomAdministratorRep
 
     Integer total =
         (Integer)
-            Objects.requireNonNull(
+            Optional.ofNullable(
                     mongoTemplate
                         .aggregate(countAggregation, COLLECTION_NAME, Map.class)
                         .getUniqueMappedResult())
-                .getOrDefault(TOTAL_FIELD_NAME, 0);
+                .map(result -> result.get(TOTAL_FIELD_NAME))
+                .orElse(0);
 
     Aggregation aggregation = newAggregation(lookup, unwind, match, unset, skip, limit);
     AggregationResults<Administrator> results =

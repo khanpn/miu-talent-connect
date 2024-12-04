@@ -83,11 +83,12 @@ public class CustomCandidateRepositoryImpl implements CustomCandidateRepository 
 
       Integer total =
           (Integer)
-              Objects.requireNonNull(
+              Optional.ofNullable(
                       mongoTemplate
                           .aggregate(newAggregation(countOperation), COLLECTION_NAME, Map.class)
                           .getUniqueMappedResult())
-                  .getOrDefault(TOTAL_FIELD_NAME, 0);
+                  .map(result -> result.get(TOTAL_FIELD_NAME))
+                  .orElse(0);
 
       operations.add(skip);
       operations.add(limit);
