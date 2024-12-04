@@ -28,6 +28,10 @@ import restClient, { extractErrorMessage } from '../../../rest/restClient';
 import PageLoading from '../../common/PageLoading/PageLoading';
 import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
 import { SignUpSchema, SignUpType } from './SignUpSchema';
+import Breadcrumbs, {
+  BreadcrumbItem,
+} from '../../common/Breadcrumbs/Breadcrumbs';
+import { Home } from '@mui/icons-material';
 
 const SuccessAlert = () => {
   return (
@@ -38,6 +42,19 @@ const SuccessAlert = () => {
     </Alert>
   );
 };
+
+const BREADSCRUM_ITEMS: BreadcrumbItem[] = [
+  {
+    label: 'Home',
+    icon: Home,
+    path: '/',
+  },
+  {
+    label: 'Sign Up',
+    icon: PersonAddIcon,
+    isActive: true,
+  },
+];
 
 const SignUpPage = () => {
   const [validating, setValidating] = useState(false);
@@ -81,6 +98,7 @@ const SignUpPage = () => {
   return (
     <>
       <StandardLayout hideProfileMenu>
+        <Breadcrumbs items={BREADSCRUM_ITEMS} />
         <Container
           sx={{
             display: 'flex',

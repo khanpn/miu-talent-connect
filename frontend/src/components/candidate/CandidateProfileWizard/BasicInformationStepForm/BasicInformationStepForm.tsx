@@ -237,6 +237,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                         onChange={field.onChange}
                         renderInput={(params) => (
                           <TextField
+                            required
                             {...params}
                             fullWidth
                             label="Choose Country"
@@ -256,6 +257,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
                 </Grid>
                 <Grid size={{ sm: 4 }}>
                   <TextField
+                    required
                     id="zipCode"
                     label="Zip Code"
                     variant="outlined"

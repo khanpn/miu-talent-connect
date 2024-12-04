@@ -12,15 +12,14 @@ import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
 import { CONTENT_PADDING } from '../../../constants/Spacing';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-  marginTop: '16px',
-  border: '1px solid',
-  borderColor: theme.palette.divider,
-  borderRadius: theme.shape.borderRadius,
-  background: theme.palette.secondary.main,
+  marginTop: '1px',
+  borderRight: `1px solid ${theme.palette.secondary.main}`,
+  borderLeft: `1px solid ${theme.palette.secondary.main}`,
+  borderColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.secondary.main,
   display: 'flex',
   justifyContent: 'space-between',
   height: '56px',
-  zIndex: 999,
 }));
 
 const StyledLeftPanel = styled(Box)(({ theme }) => ({
@@ -46,13 +45,12 @@ function HomePage() {
         <Button fullWidth>Contact US</Button>
       </StyledContainer>
 
-      <Container
-        disableGutters
+      <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           flexGrow: 1,
-          marginTop: '16px',
+          p: CONTENT_PADDING,
         }}
       >
         <Grid container sx={{ flexGrow: 1 }} spacing={CONTENT_PADDING}>
@@ -67,8 +65,7 @@ function HomePage() {
             </Container>
           </Grid>
         </Grid>
-        <Box mb="16px" />
-      </Container>
+      </Box>
     </StandardLayout>
   );
 }

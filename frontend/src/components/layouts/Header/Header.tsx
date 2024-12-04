@@ -11,6 +11,8 @@ import UserProfileMenu from '../../common/UserProfileMenu/UserProfileMenu';
 import { Link } from 'react-router-dom';
 
 const StyledBox = styled(Box)(({ theme }) => ({
+  borderRight: `1px solid ${theme.palette.primary.main}`,
+  borderLeft: `1px solid ${theme.palette.primary.main}`,
   backgroundColor: theme.palette.primary.main,
 }));
 

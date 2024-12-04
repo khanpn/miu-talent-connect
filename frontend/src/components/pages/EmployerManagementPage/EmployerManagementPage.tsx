@@ -1,6 +1,6 @@
 import { Home } from '@mui/icons-material';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CONTENT_PADDING } from '../../../constants/Spacing';
@@ -37,10 +37,9 @@ const EmployerManagementPage = () => {
   return (
     <StandardLayout>
       <Breadcrumbs items={BREADSCRUM_ITEMS} />
-      <Box mt="16px" />
-      <Container disableGutters>
+      <Box p={CONTENT_PADDING}>
         <EmployerManagement />
-      </Container>
+      </Box>
       <Box mb={CONTENT_PADDING} />
     </StandardLayout>
   );

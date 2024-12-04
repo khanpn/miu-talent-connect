@@ -128,7 +128,10 @@ const SubmissionStepForm = (props: BaseStepFormProps) => {
       skills: skillsData,
       certifications: certificationsData,
       education: educationData,
-      references: references,
+      references: references?.map((e) => ({
+        ...e,
+        middleName: e.middleName || undefined,
+      })),
     };
 
     try {

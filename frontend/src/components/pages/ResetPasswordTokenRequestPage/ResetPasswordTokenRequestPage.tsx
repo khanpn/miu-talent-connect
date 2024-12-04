@@ -25,6 +25,10 @@ import {
   ResetPasswordTokenRequestSchema,
   ResetPasswordTokenRequestType,
 } from './ResetPasswordTokenRequestSchema';
+import Breadcrumbs, {
+  BreadcrumbItem,
+} from '../../common/Breadcrumbs/Breadcrumbs';
+import { Home } from '@mui/icons-material';
 
 const SuccessAlert = () => {
   return (
@@ -35,6 +39,19 @@ const SuccessAlert = () => {
     </Alert>
   );
 };
+
+const BREADSCRUM_ITEMS: BreadcrumbItem[] = [
+  {
+    label: 'Home',
+    icon: Home,
+    path: '/',
+  },
+  {
+    label: 'Reset Password Request',
+    icon: LockResetIcon,
+    isActive: true,
+  },
+];
 
 const ResetPasswordTokenRequestPage = () => {
   const [validating, setValidating] = useState(false);
@@ -69,6 +86,7 @@ const ResetPasswordTokenRequestPage = () => {
   return (
     <>
       <StandardLayout hideProfileMenu>
+        <Breadcrumbs items={BREADSCRUM_ITEMS} />
         <Container
           sx={{
             display: 'flex',

@@ -10,10 +10,11 @@ import {
 import React from 'react';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-  marginTop: '16px',
-  borderColor: theme.palette.divider,
-  borderRadius: theme.shape.borderRadius,
-  background: theme.palette.secondary.main,
+  marginTop: '1px',
+  borderRight: `1px solid ${theme.palette.secondary.main}`,
+  borderLeft: `1px solid ${theme.palette.secondary.main}`,
+  borderColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.secondary.main,
 }));
 
 export interface BreadcrumbItem {

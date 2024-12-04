@@ -23,6 +23,10 @@ import restClient, { extractErrorMessage } from '../../../rest/restClient';
 import PageLoading from '../../common/PageLoading/PageLoading';
 import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
 import { ResetPasswordSchema, ResetPasswordType } from './ResetPasswordSchema';
+import Breadcrumbs, {
+  BreadcrumbItem,
+} from '../../common/Breadcrumbs/Breadcrumbs';
+import { Home } from '@mui/icons-material';
 
 const SuccessAlert = () => {
   return (
@@ -33,6 +37,19 @@ const SuccessAlert = () => {
     </Alert>
   );
 };
+
+const BREADSCRUM_ITEMS: BreadcrumbItem[] = [
+  {
+    label: 'Home',
+    icon: Home,
+    path: '/',
+  },
+  {
+    label: 'Reset Password',
+    icon: LockResetIcon,
+    isActive: true,
+  },
+];
 
 const ResetPasswordPage = () => {
   const [searchParams] = useSearchParams();
@@ -77,6 +94,7 @@ const ResetPasswordPage = () => {
   return (
     <>
       <StandardLayout hideProfileMenu>
+        <Breadcrumbs items={BREADSCRUM_ITEMS} />
         <Container
           sx={{
             display: 'flex',

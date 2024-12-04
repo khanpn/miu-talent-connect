@@ -40,7 +40,7 @@ const CategoryManagement: React.FC = () => {
   useEffect(() => {
     halClient
       .fetchResource<Category>(CATEGORY_RESOURCE_PATH, {
-        params: { page: 0, size: 999 },
+        params: { page: 0, size: 9999 },
       })
       .then((data) => setCategories(data?._embedded?.categories || []));
   }, [reloadData]);
@@ -104,7 +104,7 @@ const CategoryManagement: React.FC = () => {
 
   return (
     <>
-      <Container maxWidth="sm" sx={{ mt: CONTENT_PADDING }}>
+      <Container maxWidth="sm">
         <Typography variant="h5" align="center" gutterBottom>
           Manage Categories
         </Typography>

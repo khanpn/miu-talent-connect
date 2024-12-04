@@ -1,7 +1,13 @@
-import { Box } from '@mui/material';
+import { Box, Container, styled } from '@mui/material';
 import { ReactNode } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+
+const BorderedBox = styled(Box)(({ theme }) => ({
+  borderRight: '1px solid',
+  borderLeft: '1px solid',
+  borderColor: theme.palette.divider,
+}));
 
 interface Props {
   children: ReactNode;
@@ -10,7 +16,8 @@ interface Props {
 
 const StandardLayout = ({ children, hideProfileMenu }: Props) => {
   return (
-    <Box
+    <Container
+      disableGutters
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -18,11 +25,11 @@ const StandardLayout = ({ children, hideProfileMenu }: Props) => {
       }}
     >
       <Header hideProfileMenu={hideProfileMenu} />
-      <Box display="flex" flexGrow={1} flexDirection="column">
+      <BorderedBox display="flex" flexGrow={1} flexDirection="column">
         {children}
-      </Box>
+      </BorderedBox>
       <Footer />
-    </Box>
+    </Container>
   );
 };
 

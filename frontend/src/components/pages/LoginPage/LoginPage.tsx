@@ -32,6 +32,23 @@ import PageLoading from '../../common/PageLoading/PageLoading';
 import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
 import { LoginSchema, LoginType } from './LoginSchema';
 import { useAuth } from '../../../hooks/useAuth';
+import Breadcrumbs, {
+  BreadcrumbItem,
+} from '../../common/Breadcrumbs/Breadcrumbs';
+import { Home } from '@mui/icons-material';
+
+const BREADSCRUM_ITEMS: BreadcrumbItem[] = [
+  {
+    label: 'Home',
+    icon: Home,
+    path: '/',
+  },
+  {
+    label: 'Sign In',
+    icon: LockOutlinedIcon,
+    isActive: true,
+  },
+];
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -104,6 +121,7 @@ const LoginPage = () => {
   return (
     <>
       <StandardLayout hideProfileMenu>
+        <Breadcrumbs items={BREADSCRUM_ITEMS} />
         <Container
           sx={{
             display: 'flex',

@@ -8,7 +8,7 @@ export const ReferencesStepFormSchema = y.object({
         .string()
         .max(255, 'First name is too long')
         .required('First name is required'),
-      middleName: y.string().max(255, 'Middle name is too long'),
+      middleName: y.string().max(255, 'Middle name is too long').nullable(),
       lastName: y
         .string()
         .max(255, 'Last name is too long')

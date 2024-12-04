@@ -4,7 +4,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import { Box, Container, Skeleton } from '@mui/material';
+import { Box, Skeleton } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CONTENT_PADDING } from '../../../constants/Spacing';
@@ -48,11 +48,9 @@ const PageSkeleton = () => {
     <>
       <StandardLayout>
         <Breadcrumbs items={BREADSCRUM_ITEMS} />
-        <Container disableGutters>
-          <Box mt="16px" />
+        <Box p={CONTENT_PADDING}>
           <Skeleton sx={{ height: 500 }} />
-        </Container>
-        <Box mb={CONTENT_PADDING} />
+        </Box>
       </StandardLayout>
       <PageLoading open={true} />
     </>
@@ -139,11 +137,9 @@ const CandidateProfileWizardPage = () => {
     <>
       <StandardLayout>
         <Breadcrumbs items={BREADSCRUM_ITEMS} />
-        <Container disableGutters>
-          <Box mt="16px" />
+        <Box p={CONTENT_PADDING}>
           <CandidateProfileWizard steps={steps} />
-        </Container>
-        <Box mb={CONTENT_PADDING} />
+        </Box>
       </StandardLayout>
     </>
   );

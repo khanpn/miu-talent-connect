@@ -306,7 +306,6 @@ const EducationStepForm = (props: BaseStepFormProps) => {
                             label="End Date"
                             value={dayjs(field.value)}
                             onChange={(date) => field.onChange(date)}
-                            maxDate={dayjs()}
                             slotProps={{
                               textField: {
                                 variant: 'outlined',

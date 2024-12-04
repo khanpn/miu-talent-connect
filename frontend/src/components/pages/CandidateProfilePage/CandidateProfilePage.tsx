@@ -1,20 +1,20 @@
 import { Home, Person } from '@mui/icons-material';
+import { Box, Skeleton } from '@mui/material';
+import _ from 'lodash';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { CONTENT_PADDING } from '../../../constants/Spacing';
+import useFetchCandidate from '../../../hooks/useFetchCandidate';
+import { CandidateProfile as CandidateProfileModel } from '../../../models/CandidateProfile';
+import { User } from '../../../models/User';
+import halClient from '../../../rest/halClient';
 import CandidateProfile from '../../candidate/CandidateProfile/CandidateProfile';
+import useCandidateProfileStore from '../../candidate/CandidateProfile/store';
 import Breadcrumbs, {
   BreadcrumbItem,
 } from '../../common/Breadcrumbs/Breadcrumbs';
-import { Box, Container, Skeleton } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import _ from 'lodash';
-import useFetchCandidate from '../../../hooks/useFetchCandidate';
-import halClient from '../../../rest/halClient';
-import { User } from '../../../models/User';
-import { CandidateProfile as CandidateProfileModel } from '../../../models/CandidateProfile';
-import useCandidateProfileStore from '../../candidate/CandidateProfile/store';
-import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
 import PageLoading from '../../common/PageLoading/PageLoading';
-import { CONTENT_PADDING } from '../../../constants/Spacing';
+import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
 
 const BREADSCRUM_ITEMS: BreadcrumbItem[] = [
   {
@@ -34,11 +34,9 @@ const PageSkeleton = () => {
     <>
       <StandardLayout>
         <Breadcrumbs items={BREADSCRUM_ITEMS} />
-        <Container disableGutters>
-          <Box mt="16px" />
+        <Box sx={{ p: CONTENT_PADDING }}>
           <Skeleton sx={{ height: 500 }} />
-        </Container>
-        <Box mb={CONTENT_PADDING} />
+        </Box>
       </StandardLayout>
       <PageLoading open={true} />
     </>
@@ -88,11 +86,9 @@ const CandidateProfilePage = () => {
   return (
     <StandardLayout>
       <Breadcrumbs items={BREADSCRUM_ITEMS} />
-      <Container disableGutters>
-        <Box mt="16px" />
+      <Box sx={{ p: CONTENT_PADDING }}>
         <CandidateProfile />
-      </Container>
-      <Box mb={CONTENT_PADDING} />
+      </Box>
     </StandardLayout>
   );
 };

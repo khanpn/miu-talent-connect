@@ -1,8 +1,9 @@
 import { Home } from '@mui/icons-material';
 import CategoryIcon from '@mui/icons-material/Category';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CONTENT_PADDING } from '../../../constants/Spacing';
 import { useAuth } from '../../../hooks/useAuth';
 import Breadcrumbs, {
   BreadcrumbItem,
@@ -36,11 +37,9 @@ const CategoryManagementPage = () => {
   return (
     <StandardLayout>
       <Breadcrumbs items={BREADSCRUM_ITEMS} />
-      <Box mt="16px" />
-      <Container disableGutters>
+      <Box p={CONTENT_PADDING}>
         <CategoryManagement />
-      </Container>
-      <Box mb={2} />
+      </Box>
     </StandardLayout>
   );
 };

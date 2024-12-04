@@ -10,10 +10,14 @@ import {
 import { CONTENT_PADDING } from '../../../constants/Spacing';
 
 const StyledBox = styled(Box)(({ theme }) => ({
+  borderRight: `1px solid ${theme.palette.primary.main}`,
+  borderLeft: `1px solid ${theme.palette.primary.main}`,
   backgroundColor: theme.palette.primary.main,
 }));
 
 const StyledBoxDarker = styled(Box)(({ theme }) => ({
+  borderRight: `1px solid ${theme.palette.primary.dark}`,
+  borderLeft: `1px solid ${theme.palette.primary.dark}`,
   backgroundColor: theme.palette.primary.dark,
 }));
 
