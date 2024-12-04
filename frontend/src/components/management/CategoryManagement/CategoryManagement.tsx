@@ -39,7 +39,9 @@ const CategoryManagement: React.FC = () => {
 
   useEffect(() => {
     halClient
-      .fetchResource<Category>(CATEGORY_RESOURCE_PATH)
+      .fetchResource<Category>(CATEGORY_RESOURCE_PATH, {
+        params: { page: 0, size: 999 },
+      })
       .then((data) => setCategories(data?._embedded?.categories || []));
   }, [reloadData]);
 

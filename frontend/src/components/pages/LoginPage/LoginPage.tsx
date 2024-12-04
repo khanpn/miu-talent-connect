@@ -72,6 +72,7 @@ const LoginPage = () => {
       return;
     }
     if (
+      history.length < 2 ||
       history[history.length - 2] === '/login' ||
       history[history.length - 2] === '/signup' ||
       history[history.length - 2] === '/change-password' ||
