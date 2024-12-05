@@ -16,7 +16,7 @@ export const BasicInformationStepFormSchema = y.object({
     .max(255, 'Job title is too long')
     .required('Job title is required'),
   pronoun: y.string().max(255, 'Pronoun is too long').required(),
-  bio: y.string().max(255, 'Bio is too long').nullable(),
+  bio: y.string().max(1000, 'Bio is too long').nullable(),
   phoneNumber: y
     .string()
     .required('Phone Number is required')

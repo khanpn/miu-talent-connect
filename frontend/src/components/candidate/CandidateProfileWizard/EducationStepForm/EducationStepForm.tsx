@@ -164,6 +164,7 @@ const EducationStepForm = (props: BaseStepFormProps) => {
                               onChange={field.onChange}
                               renderInput={(params) => (
                                 <TextField
+                                  required
                                   {...params}
                                   fullWidth
                                   label="Choose Country"
@@ -194,7 +195,7 @@ const EducationStepForm = (props: BaseStepFormProps) => {
                       error={!!errors.education?.[index]?.degreeType}
                       fullWidth
                     >
-                      <InputLabel id="degree-type-select-label">
+                      <InputLabel required id="degree-type-select-label">
                         Degree Type
                       </InputLabel>
                       <Controller
