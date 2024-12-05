@@ -66,4 +66,4 @@ jobs:
 
     - name: Deploy container on AWS Lightsail
       shell: bash
-      run: aws lightsail create-container-service-deployment --region ${{ env.AWS_REGION }} --cli-input-json '${{ vars.LIGHTSAIL_SERVICE_CONFIG_JSON }}' > /dev/null
+      run: aws lightsail create-container-service-deployment --region ${{ env.AWS_REGION }} --cli-input-json '${{ secrets.LIGHTSAIL_SERVICE_CONFIG_JSON }}' > /dev/null

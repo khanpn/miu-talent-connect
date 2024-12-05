@@ -155,7 +155,7 @@ const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
                       <Grid size={{ sm: 4, md: 4 }}>
                         <TextField
                           id="city"
-                          label="city"
+                          label="City"
                           variant="outlined"
                           fullWidth
                           {...register(`experience.${index}.location.city`)}
@@ -195,6 +195,7 @@ const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
                               onChange={field.onChange}
                               renderInput={(params) => (
                                 <TextField
+                                  required
                                   {...params}
                                   fullWidth
                                   label="Choose Country"
