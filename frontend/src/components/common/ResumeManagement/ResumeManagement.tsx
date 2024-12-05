@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -50,27 +50,26 @@ const ResumeManagement = ({ resumeUrl, onChange }: Props) => {
     []
   );
 
-  const handleUpload = useCallback(async () => {
+  useEffect(() => {
     if (file) {
       setUploading(true);
       const formData = new FormData();
       formData.append('file', file);
-      try {
-        const response = await restClient.post(RESOURCE_URL, formData, {
+      restClient
+        .post(RESOURCE_URL, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
+        })
+        .then((response) => {
+          console.log('Upload resume successful:', response.data);
+          onChange && onChange(response.data);
+          setFile(null);
+        })
+        .catch((error) => {
+          console.error('Error uploading resume file:', error);
         });
-
-        console.log('Upload resume successful:', response.data);
-        onChange && onChange(response.data);
-        setFile(null);
-      } catch (error) {
-        console.error('Error uploading resume file:', error);
-      }
       setUploading(false);
-    } else {
-      alert('No resume selected. Please upload a file first.');
     }
   }, [file]);
 
@@ -96,24 +95,6 @@ const ResumeManagement = ({ resumeUrl, onChange }: Props) => {
                 hidden
                 onChange={handleFileChange}
               />
-            </Button>
-          </Grid>
-          <Grid size={{ sm: 12 }}>
-            {file && (
-              <Typography variant="body1" color="textSecondary" mb={1}>
-                Selected File: {file.name}
-              </Typography>
-            )}
-          </Grid>
-          <Grid size={{ sm: 12 }}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleUpload}
-              disabled={!file}
-              style={{ textTransform: 'none' }}
-            >
-              Upload Resume
             </Button>
           </Grid>
         </Grid>
