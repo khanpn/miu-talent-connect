@@ -21,7 +21,7 @@ public class CandidateProfile extends Auditable {
   @Size(min = 1, max = 255, message = "{CandidateProfile.jobTitle.Size}")
   private String jobTitle;
 
-  @Size(max = 255, message = "{CandidateProfile.bio.Size}")
+  @Size(max = 1000, message = "{CandidateProfile.bio.Size}")
   private String bio;
 
   @Size(max = 1000, message = "{CandidateProfile.summary.Size}")
