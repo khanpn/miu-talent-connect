@@ -15,6 +15,7 @@ import jakarta.mail.MessagingException;
 import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Getter
+@Setter
 public class CandidateService extends AbstractUserService {
 
   @Value("${app.emails.new-candidate.template:emails/new-candidate.html}")

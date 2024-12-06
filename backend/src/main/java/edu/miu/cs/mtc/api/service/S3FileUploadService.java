@@ -3,6 +3,7 @@ package edu.miu.cs.mtc.api.service;
 import java.io.IOException;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,6 +14,7 @@ import software.amazon.awssdk.services.s3.model.S3Exception;
 
 @Service
 @RequiredArgsConstructor
+@Setter
 public class S3FileUploadService implements FileUploadService {
   private static final String S3_ACCESS_URL_TEMPLATE = "https://%s.s3.%s.amazonaws.com/%s";
 
