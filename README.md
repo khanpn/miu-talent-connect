@@ -42,14 +42,14 @@ Below are screenshots of some main features of the application
 Home Page
 ![Home Page](screenshots/app-home-page.png)
 
-Candidate Profile Page
-![Candidate Profile Page](screenshots/app-profile-page.png)
-
 Candidate Profile Wizard
 ![Candidate Profile Wizard](screenshots/app-profile-wizard.png)
 
 Candidate Profile Wizard - Optional Step
 ![Candidate Profile Wizard - Optional Step](screenshots/app-profile-wizard-optional-step.png)
+
+Candidate Profile Page
+![Candidate Profile Page](screenshots/app-profile-page.png)
 
 System Admin Profile Menu
 ![System Admin Profile Menu](screenshots/app-system-admin-profile-menu.png)
