@@ -19,6 +19,7 @@ import { Website } from '../../../../models/Website';
 import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../../../../stores/AuthStore';
 import { useMemo } from 'react';
+import { CONTENT_PADDING } from '../../../../constants/Spacing';
 
 const StyledContactInfo = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
@@ -57,7 +58,7 @@ const BasicInfoBlock = ({ basicInfo }: Props) => {
   return (
     <Box>
       <Paper variant="outlined">
-        <Box padding={2}>
+        <Box padding={CONTENT_PADDING}>
           <Box display="flex" justifyContent="flex-end">
             {basicInfo.id === user?.id && (
               <Button
@@ -84,6 +85,7 @@ const BasicInfoBlock = ({ basicInfo }: Props) => {
                 <LinkedInIcon color="inherit" fontSize="large" />
               </IconButton>
               <IconButton
+                color="primary"
                 onClick={() => window.open(gitHubUrl, '_blank')}
                 disabled={!gitHubUrl}
                 aria-label="GitHub"

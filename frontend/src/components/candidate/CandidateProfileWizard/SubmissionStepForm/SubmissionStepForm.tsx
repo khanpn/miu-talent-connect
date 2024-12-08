@@ -1,20 +1,18 @@
 import { Box, FormHelperText, Typography } from '@mui/material';
-import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
-import Panel from '../../../common/Panel/Panel';
-import useCandidateProfileWizardStore from '../store';
-import restClient from '../../../../rest/restClient';
 import dayjs from 'dayjs';
-import _ from 'lodash';
-import { User } from '../../../../models/User';
+import { useEffect, useState } from 'react';
 import { CandidateProfile } from '../../../../models/CandidateProfile';
-import { WorkExperience } from '../../../../models/WorkExperience';
-import { Project } from '../../../../models/Project';
-import Skill from '../../../../models/Skill';
 import { Certification } from '../../../../models/Certification';
 import { Education } from '../../../../models/Education';
-import { CONTENT_PADDING } from '../../../../constants/Spacing';
+import { Project } from '../../../../models/Project';
+import Skill from '../../../../models/Skill';
+import { User } from '../../../../models/User';
+import { WorkExperience } from '../../../../models/WorkExperience';
+import restClient from '../../../../rest/restClient';
 import PageLoading from '../../../common/PageLoading/PageLoading';
-import { useEffect, useState } from 'react';
+import Panel from '../../../common/Panel/Panel';
+import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
+import useCandidateProfileWizardStore from '../store';
 
 const USER_RESOURCE_PATH = '/users';
 
@@ -175,7 +173,7 @@ const SubmissionStepForm = (props: BaseStepFormProps) => {
           nextLabel="Submit"
         >
           <Panel title="Submission">
-            <Box p={CONTENT_PADDING}>
+            <Box>
               {serverError ? (
                 <FormHelperText style={{ fontSize: 18 }} error>
                   {serverError}

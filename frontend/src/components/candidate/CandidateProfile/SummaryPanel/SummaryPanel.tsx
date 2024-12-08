@@ -1,5 +1,5 @@
-import { Typography } from '@mui/material';
-import Panel from '../Panel/Panel';
+import Panel from '../../../common/Panel/Panel';
+import ExpandableText from '../../../common/ExpandableText/ExpandableText';
 
 interface Props {
   summary?: string;
@@ -8,7 +8,7 @@ interface Props {
 const SummaryPanel = ({ summary }: Props) => {
   return (
     <Panel title="Summary">
-      <Typography>{summary ? summary : 'N/A'}</Typography>
+      <ExpandableText limit={500}>{summary ? summary : 'N/A'}</ExpandableText>
     </Panel>
   );
 };

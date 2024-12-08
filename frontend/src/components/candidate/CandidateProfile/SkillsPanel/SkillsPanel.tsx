@@ -9,7 +9,7 @@ import {
   TableRow,
 } from '@mui/material';
 import Skill from '../../../../models/Skill';
-import Panel from '../Panel/Panel';
+import Panel from '../../../common/Panel/Panel';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   border: '1px solid',

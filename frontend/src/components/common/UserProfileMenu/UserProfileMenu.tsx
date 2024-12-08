@@ -176,6 +176,11 @@ const UserProfileMenu = () => {
         </Box>
       ) : (
         <Box>
+          <Link to="/signup">
+            <Button color="secondary" sx={{ textTransform: 'none' }}>
+              Sign Up
+            </Button>
+          </Link>
           <Link to="/login">
             <Button color="secondary" sx={{ textTransform: 'none' }}>
               Sign In

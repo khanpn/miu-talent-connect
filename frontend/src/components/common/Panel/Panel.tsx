@@ -1,5 +1,6 @@
 import { Box, Divider, Paper, styled, Typography } from '@mui/material';
 import { ReactNode } from 'react';
+import { CONTENT_PADDING } from '../../../constants/Spacing';
 
 const StyledHeader = styled(Box)(
   ({
@@ -21,11 +22,11 @@ const Panel = ({ title, children }: Props) => {
   return (
     <Box>
       <Paper variant="outlined">
-        <StyledHeader p={1}>
+        <StyledHeader px={CONTENT_PADDING} py={1}>
           <Typography variant="h5">{title}</Typography>
         </StyledHeader>
         <Divider />
-        <Box p={1}>{children}</Box>
+        <Box p={CONTENT_PADDING}>{children}</Box>
       </Paper>
     </Box>
   );

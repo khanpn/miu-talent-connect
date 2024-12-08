@@ -40,7 +40,7 @@ const SearchBar = () => {
   return (
     <StyledBox>
       <Box sx={{ p: CONTENT_PADDING }}>
-        <Typography variant="h6" gutterBottom color="primary">
+        <Typography variant="h5" gutterBottom color="primary">
           Search
         </Typography>
         <TextField

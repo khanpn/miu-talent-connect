@@ -1,4 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import {
   Box,
   Button,
@@ -11,24 +13,22 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import { Controller, useFieldArray, useForm } from 'react-hook-form';
-import Panel from '../../../common/Panel/Panel';
-import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
-import {
-  BasicInformationStepFormType,
-  BasicInformationStepFormSchema,
-} from './BasicInformationStepFormSchema';
-import useCandidateProfileWizardStore from '../store';
 import { MuiTelInput } from 'mui-tel-input';
-import { optionsFromEnum } from '../../../../utils/SelectOptionsUtils';
-import { Pronoun } from '../../../../models/Pronoun';
-import MyAvatar from './MyAvatar/MyAvatar';
-import ResumeManagement from '../../../common/ResumeManagement/ResumeManagement';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
+import { FIELDS_SPACING } from '../../../../constants/Spacing';
 import { LanguageProficiencyLevel } from '../../../../models/LangaugeProficiencyLevel';
+import { Pronoun } from '../../../../models/Pronoun';
+import { optionsFromEnum } from '../../../../utils/SelectOptionsUtils';
 import CountrySelect from '../../../common/CountrySelect/CountrySelect';
-import { CONTENT_PADDING, FIELDS_SPACING } from '../../../../constants/Spacing';
+import Panel from '../../../common/Panel/Panel';
+import ResumeManagement from '../../../common/ResumeManagement/ResumeManagement';
+import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
+import useCandidateProfileWizardStore from '../store';
+import {
+  BasicInformationStepFormSchema,
+  BasicInformationStepFormType,
+} from './BasicInformationStepFormSchema';
+import MyAvatar from './MyAvatar/MyAvatar';
 
 const BasicInformationStepForm = (props: BaseStepFormProps) => {
   const basicInformationStepForm = useCandidateProfileWizardStore(
@@ -79,7 +79,7 @@ const BasicInformationStepForm = (props: BaseStepFormProps) => {
     <Box>
       <BaseStepForm {...props} onNext={onNext} hasBack={false}>
         <Panel title="Basic Information">
-          <Grid container spacing={FIELDS_SPACING} p={CONTENT_PADDING}>
+          <Grid container spacing={FIELDS_SPACING}>
             <Grid size={{ sm: 12 }}>
               <Controller
                 name="profilePictureUrl"

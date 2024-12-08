@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import dayjs from 'dayjs';
-import Panel from '../Panel/Panel';
+import Panel from '../../../common/Panel/Panel';
 
 interface Props {
   certifications?: Certification[];

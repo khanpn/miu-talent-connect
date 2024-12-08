@@ -1,3 +1,6 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import {
   Box,
   Button,
@@ -8,24 +11,21 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
-import Panel from '../../../common/Panel/Panel';
-import { Controller, useFieldArray, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import {
-  ProfessionalExperienceStepFormType,
-  ProfessionalExperienceStepFormSchema,
-} from './ProfessionalExperienceStepFormSchema';
-import useCandidateProfileWizardStore from '../store';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
+import { FIELDS_SPACING } from '../../../../constants/Spacing';
 import CountrySelect from '../../../common/CountrySelect/CountrySelect';
+import Panel from '../../../common/Panel/Panel';
+import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
+import useCandidateProfileWizardStore from '../store';
 import PrimaryTechnologiesSelector from './PrimaryTechnologiesSelector/PrimaryTechnologiesSelector';
-import { CONTENT_PADDING, FIELDS_SPACING } from '../../../../constants/Spacing';
+import {
+  ProfessionalExperienceStepFormSchema,
+  ProfessionalExperienceStepFormType,
+} from './ProfessionalExperienceStepFormSchema';
 
 const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
   const professionalExperienceStepForm = useCandidateProfileWizardStore(
@@ -131,7 +131,7 @@ const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
     <Box>
       <BaseStepForm onNext={onNext} onBack={onBack} onSkip={onSkip}>
         <Panel title="Professional Experience">
-          <Box p={CONTENT_PADDING}>
+          <Box>
             <Typography variant="h5" pb={3}>
               Work Experience
             </Typography>

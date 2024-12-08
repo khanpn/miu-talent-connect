@@ -1,3 +1,5 @@
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import {
   Box,
   Button,
@@ -10,21 +12,19 @@ import {
   TextField,
 } from '@mui/material';
 import { MuiTelInput } from 'mui-tel-input';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 
-import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
-import Panel from '../../../common/Panel/Panel';
-import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import {
-  ReferencesStepFormType,
-  ReferencesStepFormSchema,
-} from './ReferencesStepFormSchema';
-import useCandidateProfileWizardStore from '../store';
-import { optionsFromEnum } from '../../../../utils/SelectOptionsUtils';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
+import { FIELDS_SPACING } from '../../../../constants/Spacing';
 import { Pronoun } from '../../../../models/Pronoun';
-import { CONTENT_PADDING, FIELDS_SPACING } from '../../../../constants/Spacing';
+import { optionsFromEnum } from '../../../../utils/SelectOptionsUtils';
+import Panel from '../../../common/Panel/Panel';
+import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
+import useCandidateProfileWizardStore from '../store';
+import {
+  ReferencesStepFormSchema,
+  ReferencesStepFormType,
+} from './ReferencesStepFormSchema';
 
 const ReferencesStepForm = (props: BaseStepFormProps) => {
   const referencesStepForm = useCandidateProfileWizardStore(
@@ -84,7 +84,7 @@ const ReferencesStepForm = (props: BaseStepFormProps) => {
     <Box>
       <BaseStepForm {...props} onNext={onNext} onBack={onBack} onSkip={onSkip}>
         <Panel title="References">
-          <Box p={CONTENT_PADDING}>
+          <Box>
             {fields.map((item, index) => (
               <Box key={item.id}>
                 {index > 0 && <Box py={3} />}

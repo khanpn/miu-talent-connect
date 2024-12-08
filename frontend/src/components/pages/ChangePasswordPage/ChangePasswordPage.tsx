@@ -30,6 +30,10 @@ import {
   ChangePasswordSchema,
   ChangePasswordType,
 } from './ChangePasswordSchema';
+import { Home } from '@mui/icons-material';
+import Breadcrumbs, {
+  BreadcrumbItem,
+} from '../../common/Breadcrumbs/Breadcrumbs';
 
 const SuccessAlert = () => {
   return (
@@ -40,6 +44,19 @@ const SuccessAlert = () => {
     </Alert>
   );
 };
+
+const BREADSCRUM_ITEMS: BreadcrumbItem[] = [
+  {
+    label: 'Home',
+    icon: Home,
+    path: '/',
+  },
+  {
+    label: 'Reset Password',
+    icon: LockResetIcon,
+    isActive: true,
+  },
+];
 
 const ChangePasswordPage = () => {
   const navigate = useNavigate();
@@ -96,6 +113,7 @@ const ChangePasswordPage = () => {
   return (
     <>
       <StandardLayout hideProfileMenu>
+        <Breadcrumbs items={BREADSCRUM_ITEMS} />
         <Container
           sx={{
             display: 'flex',

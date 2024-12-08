@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { WorkExperience } from '../../../../models/WorkExperience';
 import { getAddressAsString } from '../../../../utils/AddressUtils';
 import dayjs from 'dayjs';
-import Panel from '../Panel/Panel';
+import Panel from '../../../common/Panel/Panel';
 
 interface Props {
   experience?: WorkExperience[];

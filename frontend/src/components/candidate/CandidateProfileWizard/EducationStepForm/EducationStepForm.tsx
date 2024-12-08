@@ -1,3 +1,6 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import {
   Box,
   Button,
@@ -9,26 +12,23 @@ import {
   Select,
   TextField,
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
-import Panel from '../../../common/Panel/Panel';
-import { Controller, useFieldArray, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import {
-  EducationStepFormType,
-  EducationStepFormSchema,
-} from './EducationStepFormSchema';
-import useCandidateProfileWizardStore from '../store';
-import CountrySelect from '../../../common/CountrySelect/CountrySelect';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
+import { FIELDS_SPACING } from '../../../../constants/Spacing';
+import { DegreeStatus } from '../../../../models/DegreeStatus';
 import { DegreeType } from '../../../../models/DegreeType';
 import { optionsFromEnum } from '../../../../utils/SelectOptionsUtils';
-import { DegreeStatus } from '../../../../models/DegreeStatus';
-import { CONTENT_PADDING, FIELDS_SPACING } from '../../../../constants/Spacing';
+import CountrySelect from '../../../common/CountrySelect/CountrySelect';
+import Panel from '../../../common/Panel/Panel';
+import BaseStepForm, { BaseStepFormProps } from '../BaseStepForm/BaseStepForm';
+import useCandidateProfileWizardStore from '../store';
+import {
+  EducationStepFormSchema,
+  EducationStepFormType,
+} from './EducationStepFormSchema';
 
 const EducationStepForm = (props: BaseStepFormProps) => {
   const educationStepForm = useCandidateProfileWizardStore(
@@ -94,7 +94,7 @@ const EducationStepForm = (props: BaseStepFormProps) => {
     <Box>
       <BaseStepForm {...props} onNext={onNext} onBack={onBack} onSkip={onSkip}>
         <Panel title="Education">
-          <Box p={CONTENT_PADDING}>
+          <Box>
             {fields.map((item, index) => (
               <Box key={item.id}>
                 <Grid container spacing={FIELDS_SPACING}>

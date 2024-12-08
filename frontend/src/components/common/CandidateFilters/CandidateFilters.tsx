@@ -14,7 +14,7 @@ import { CATEGORY_RESOURCE_PATH } from '../../../rest/resources';
 import useCandidateProfileQuery from '../../../stores/SearchCandidateQueryStore';
 import { CategoryType } from '../../../models/CategoryType';
 import { getEnumKey } from '../../../utils/Enums';
-import { CONTENT_PADDING } from '../../../constants/Spacing';
+import { CONTENT_PADDING, FIELDS_SPACING } from '../../../constants/Spacing';
 
 const CATEGORY_WITH_CANDIDATE_COUNT_RESOURCE_PATH = `${CATEGORY_RESOURCE_PATH}/search/findAllWithCandidateCount`;
 
@@ -97,8 +97,8 @@ const CandidateFilters = () => {
       <Typography variant="h5" gutterBottom color="primary">
         Candidate Filters
       </Typography>
-      <Box pt={3} />
-      <Typography fontWeight="bold" gutterBottom>
+      <Box pt={FIELDS_SPACING} />
+      <Typography variant="h6" gutterBottom>
         Technologies
       </Typography>
       <CategoryList
@@ -106,8 +106,8 @@ const CandidateFilters = () => {
           (o) => getEnumKey(CategoryType, CategoryType.TECHNOLOGY) === o.type
         )}
       />
-      <Box pt={3} />
-      <Typography fontWeight="bold" gutterBottom>
+      <Box pt={FIELDS_SPACING} />
+      <Typography variant="h6" gutterBottom>
         Roles
       </Typography>
       <CategoryList
@@ -115,8 +115,8 @@ const CandidateFilters = () => {
           (o) => getEnumKey(CategoryType, CategoryType.ROLE) === o.type
         )}
       />
-      <Box pt={3} />
-      <Typography fontWeight="bold" gutterBottom>
+      <Box pt={FIELDS_SPACING} />
+      <Typography variant="h6" gutterBottom>
         Languages
       </Typography>
       <CategoryList
