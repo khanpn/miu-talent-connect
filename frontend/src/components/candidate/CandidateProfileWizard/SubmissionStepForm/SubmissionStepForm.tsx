@@ -85,6 +85,7 @@ const SubmissionStepForm = (props: BaseStepFormProps) => {
 
       const certificationsData = certifications?.map<Certification>((e) => ({
         ...e,
+        credentialID: e.credentialID || undefined,
         dateIssued: dayjs(e.dateIssued).toDate(),
         expirationDate: dayjs(e.expirationDate).toDate(),
         url: e.url || undefined,

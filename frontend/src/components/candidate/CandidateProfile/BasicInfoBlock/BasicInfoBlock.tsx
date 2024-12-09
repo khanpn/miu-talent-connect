@@ -75,7 +75,7 @@ const BasicInfoBlock = ({ basicInfo }: Props) => {
               src={basicInfo.profilePictureUrl}
               style={{ width: 160, height: 160 }}
             />
-            <Stack pt={1} direction="row" spacing={1}>
+            <Stack display="flex" pt={1} direction="row" alignItems="center">
               <IconButton
                 color="primary"
                 onClick={() => window.open(linkedInUrl, '_blank')}

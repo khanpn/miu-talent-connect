@@ -1,5 +1,5 @@
 export interface Certification {
-  certificationId?: string;
+  credentialID?: string;
   name: string;
   issuedBy: string;
   dateIssued: Date;

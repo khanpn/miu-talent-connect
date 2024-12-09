@@ -119,7 +119,7 @@ const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
   const onAddCertification = () => {
     certificationsFieldArray.append({
       name: '',
-      credentialId: '',
+      credentialID: '',
       issuedBy: '',
       dateIssued: null,
       expirationDate: null,
@@ -546,7 +546,7 @@ const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
             {certificationsFieldArray.fields.map((item, index) => (
               <Box key={item.id}>
                 <Grid key={item.id} container spacing={FIELDS_SPACING}>
-                  <Grid size={{ sm: 12, md: 8 }}>
+                  <Grid size={{ sm: 12, md: 6 }}>
                     <TextField
                       required
                       id="certificationName"
@@ -560,8 +560,24 @@ const ProfessionalExperienceStepForm = (props: BaseStepFormProps) => {
                       }
                     />
                   </Grid>
+                  <Grid size={{ sm: 12, md: 6 }}>
+                    <TextField
+                      id="credentialID"
+                      label="Credential ID"
+                      variant="outlined"
+                      fullWidth
+                      {...register(`certifications.${index}.credentialID`)}
+                      error={
+                        !!errors?.certifications?.[index]?.credentialID?.message
+                      }
+                      helperText={
+                        errors?.certifications?.[index]?.credentialID?.message
+                      }
+                    />
+                  </Grid>
                   <Grid size={{ sm: 12 }}>
                     <TextField
+                      required
                       id="certificationUssuedBy"
                       label="Certification Issued By"
                       variant="outlined"

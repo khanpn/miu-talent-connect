@@ -67,7 +67,7 @@ export const ProfessionalExperienceStepFormSchema = y.object({
         .string()
         .max(255, 'Certification issued by is too long')
         .required('Certification issued by is required'),
-      credentialId: y
+      credentialID: y
         .string()
         .max(255, 'Certification credential Id is too long')
         .nullable(),

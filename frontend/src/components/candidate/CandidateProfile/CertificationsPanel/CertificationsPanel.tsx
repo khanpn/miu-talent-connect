@@ -25,7 +25,7 @@ const CertificationsPanel = ({ certifications }: Props) => {
               <AccordionDetails>
                 <Typography gutterBottom>
                   <strong>Certification ID: </strong>
-                  {c.certificationId}
+                  {c.credentialID}
                 </Typography>
                 <Typography gutterBottom>
                   <strong>Issued By: </strong>

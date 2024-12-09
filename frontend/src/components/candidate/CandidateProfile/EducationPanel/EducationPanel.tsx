@@ -9,6 +9,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { getAddressAsString } from '../../../../utils/AddressUtils';
 import dayjs from 'dayjs';
 import Panel from '../../../common/Panel/Panel';
+import { DegreeType } from '../../../../models/DegreeType';
+import { DegreeStatus } from '../../../../models/DegreeStatus';
 
 interface Props {
   education?: Education[];
@@ -29,10 +31,16 @@ const EducationPanel = ({ education }: Props) => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography gutterBottom>
-                  <strong>Degree type:</strong> {e.degreeType}
+                  <strong>Degree type:</strong>{' '}
+                  {e.degreeType
+                    ? DegreeType[e.degreeType as keyof typeof DegreeType]
+                    : 'N/A'}
                 </Typography>
                 <Typography gutterBottom>
-                  <strong>Degree status:</strong> {e.degreeStatus}
+                  <strong>Degree status:</strong>{' '}
+                  {e.degreeStatus
+                    ? DegreeStatus[e.degreeStatus as keyof typeof DegreeStatus]
+                    : 'N/A'}
                 </Typography>
                 <Typography gutterBottom>
                   <strong>Field of study:</strong> {e.fieldOfStudy}
