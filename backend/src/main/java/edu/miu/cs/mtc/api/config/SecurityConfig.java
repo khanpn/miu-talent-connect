@@ -58,7 +58,10 @@ public class SecurityConfig {
                         restBasePath + "/categories/**",
                         restBasePath + "/candidates/**")
                     .permitAll()
-                    .requestMatchers(HttpMethod.POST, restBasePath + "/candidates/quick-create")
+                    .requestMatchers(
+                        HttpMethod.POST,
+                        restBasePath + "/candidates/quick-create",
+                        restBasePath + "/employers/quick-create")
                     .permitAll()
                     .requestMatchers(restBasePath + "/administrators/**")
                     .hasRole(UserRole.SYSTEM_ADMIN.name())
