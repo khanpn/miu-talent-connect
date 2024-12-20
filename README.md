@@ -1,5 +1,7 @@
 # MIU Talent Connect
 
+Online Demo: [https://miutalentconnect.org](https://miutalentconnect.org)
+
 ## 1. Problem Statement
 
 Students and recent graduates often struggle to secure roles matching their skills, while employers face challenges finding qualified candidates efficiently. Traditional hiring methods are time-consuming and often overlook emerging talent without strong connections.
